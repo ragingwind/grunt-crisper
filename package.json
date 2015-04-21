@@ -1,5 +1,5 @@
 {
-  "name": "gulp-crisper",
+  "name": "grunt-crisper",
   "version": "0.0.3",
   "description": "Grunt plugin for crisper that split inline scripts from an HTML file for CSP compliance",
   "license": "MIT",
