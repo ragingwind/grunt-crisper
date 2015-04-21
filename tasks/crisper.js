@@ -4,20 +4,20 @@ var path = require('path');
 var crisper = require('crisper');
 
 function getDestPath(filepath) {
-	var basename = path.basename(filepath, path.extname(filepath));
-	var base = path.dirname(path.resolve(process.cwd(), filepath));
-	var dest = {};
+  var basename = path.basename(filepath, path.extname(filepath));
+  var base = path.dirname(path.resolve(process.cwd(), filepath));
+  var dest = {};
 
-	['html', 'js'].forEach(function(type) {
-		var name = basename + '.' + type;
-		dest[type] = {
-			base: base,
-			path: path.join(base, name),
+  ['html', 'js'].forEach(function(type) {
+    var name = basename + '.' + type;
+      dest[type] = {
+      base: base,
+      path: path.join(base, name),
       name: name
-		};
-	});
+    };
+  });
 
-	return dest;
+  return dest;
 }
 
 module.exports = function (grunt) {
@@ -35,21 +35,21 @@ module.exports = function (grunt) {
           return true;
         }
       }).map(function(file) {
-				var content = grunt.file.read(file);
+        var content = grunt.file.read(file);
 
-				if (options.cleanup) {
-					grunt.log.warn('Source file "' + file + '" will be removed');
-					grunt.file.delete(file);
-				}
+        if (options.cleanup) {
+          grunt.log.warn('Source file "' + file + '" will be removed');
+          grunt.file.delete(file);
+        }
 
-				return content;
-			}).join('\n');
+        return content;
+      }).join('\n');
 
-			var destpath = getDestPath(file.dest);
+      var destpath = getDestPath(file.dest);
       var split = crisper.split(contents, destpath.js.name);
 
       grunt.file.write(destpath.html.path, split.html);
-			grunt.file.write(destpath.js.path, split.js);
+      grunt.file.write(destpath.js.path, split.js);
     });
   });
 };

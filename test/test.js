@@ -30,7 +30,7 @@ var directory = function directory(dir) {
 
         // prepare vulcanized file
         grunt.file.copy(path.join(__dirname, 'fixtures/vulcanized.html'),
-                        path.join(__dirname, 'tmp/app/vulcanized.html'));
+        path.join(__dirname, 'tmp/app/vulcanized.html'));
 
         done();
       });
@@ -45,8 +45,8 @@ describe('Crisper grunt task', function () {
   var targets = {
     dist: {
       options: {
-				cleanup: false
-			},
+        cleanup: false
+      },
       src: 'app/vulcanized.html',
       dest: 'dist/vulcanized-csp.html'
     }
@@ -57,17 +57,17 @@ describe('Crisper grunt task', function () {
     grunt.task.run('crisper:dist');
     grunt.task.start();
 
-		var html = grunt.file.read(path.join(__dirname, 'tmp/dist/vulcanized-csp.html'));
-		var js = grunt.file.read(path.join(__dirname, 'tmp/dist/vulcanized-csp.js'));
-		var rex = {
-			js: /Polymer\({/,
-			html: /<script src=\"vulcanized-csp.js\"><\/script><\/body><\/html>/
-		};
+    var html = grunt.file.read(path.join(__dirname, 'tmp/dist/vulcanized-csp.html'));
+    var js = grunt.file.read(path.join(__dirname, 'tmp/dist/vulcanized-csp.js'));
+    var rex = {
+      js: /Polymer\({/,
+      html: /<script src=\"vulcanized-csp.js\"><\/script><\/body><\/html>/
+    };
 
     assert(html);
-		assert(js);
-		assert(rex.html.test(html));
-		assert(rex.js.test(js));
+    assert(js);
+    assert(rex.html.test(html));
+    assert(rex.js.test(js));
   });
 
   it('should generates separated js/html files', function () {
@@ -77,8 +77,8 @@ describe('Crisper grunt task', function () {
     grunt.task.run('crisper:dist');
     grunt.task.start();
 
-		grunt.file.read(path.join(__dirname, 'tmp/dist/vulcanized-csp.html'));
+    grunt.file.read(path.join(__dirname, 'tmp/dist/vulcanized-csp.html'));
 
     assert(!grunt.file.exists(path.join(__dirname, 'tmp/app/vulcanized-csp.html')));
-  });
+  m});
 });
