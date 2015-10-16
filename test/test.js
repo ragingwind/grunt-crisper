@@ -80,5 +80,5 @@ describe('Crisper grunt task', function () {
     grunt.file.read(path.join(__dirname, 'tmp/dist/vulcanized-csp.html'));
 
     assert(!grunt.file.exists(path.join(__dirname, 'tmp/app/vulcanized-csp.html')));
-  m});
+  });
 });
