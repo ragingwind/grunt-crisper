@@ -70,15 +70,38 @@ describe('Crisper grunt task', function () {
     assert(rex.js.test(js));
   });
 
-  it('should generates separated js/html files', function () {
+  it('options test: scriptInHead', function () {
+    // turn on cleanup option
+    targets.dist.options.scriptInHead = true;
+    grunt.config('crisper', {dist: targets.dist});
+    grunt.task.run('crisper:dist');
+    grunt.task.start();
+
+    var html = grunt.file.read(path.join(__dirname, 'tmp/dist/vulcanized-csp.html'));
+    assert(html);
+    assert(/defer=""/g.test(html));
+  });
+
+  it('options test: onlySplit', function () {
+    // turn on cleanup option
+    targets.dist.options.onlySplit = true;
+    grunt.config('crisper', {dist: targets.dist});
+    grunt.task.run('crisper:dist');
+    grunt.task.start();
+
+    var html = grunt.file.read(path.join(__dirname, 'tmp/dist/vulcanized-csp.html'));
+    assert(html);
+    assert(!/<script/g.test(html));
+  });
+
+  it('should be cleanup', function () {
     // turn on cleanup option
     targets.dist.options.cleanup = true;
     grunt.config('crisper', {dist: targets.dist});
     grunt.task.run('crisper:dist');
     grunt.task.start();
 
-    grunt.file.read(path.join(__dirname, 'tmp/dist/vulcanized-csp.html'));
-
+    assert(grunt.file.read(path.join(__dirname, 'tmp/dist/vulcanized-csp.html')));
     assert(!grunt.file.exists(path.join(__dirname, 'tmp/app/vulcanized-csp.html')));
   });
 });

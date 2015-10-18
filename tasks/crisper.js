@@ -2,6 +2,7 @@
 
 var path = require('path');
 var crisper = require('crisper');
+var oassign = require('object-assign');
 
 function getDestPath(filepath) {
   var basename = path.basename(filepath, path.extname(filepath));
@@ -46,7 +47,10 @@ module.exports = function (grunt) {
       }).join('\n');
 
       var destpath = getDestPath(file.dest);
-      var split = crisper.split(contents, destpath.js.name);
+      var split = crisper(oassign(options, {
+        source: contents,
+        jsFileName: destpath.js.name
+      }));
 
       grunt.file.write(destpath.html.path, split.html);
       grunt.file.write(destpath.js.path, split.js);
