@@ -29,7 +29,8 @@
     "components"
   ],
   "dependencies": {
-    "crisper": "^1.1.0"
+    "crisper": "^1.1.0",
+    "object-assign": "^4.0.1"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
