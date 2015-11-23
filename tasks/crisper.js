@@ -47,10 +47,10 @@ module.exports = function (grunt) {
       }).join('\n');
 
       var destpath = getDestPath(file.dest);
-      var split = crisper(oassign(options, {
+      var split = crisper(oassign({}, {
         source: contents,
         jsFileName: destpath.js.name
-      }));
+      }, options));
 
       grunt.file.write(destpath.html.path, split.html);
       grunt.file.write(destpath.js.path, split.js);
