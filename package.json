@@ -29,7 +29,7 @@
     "components"
   ],
   "dependencies": {
-    "crisper": "^1.1.0",
+    "crisper": "^2.0.1",
     "object-assign": "^4.0.1"
   },
   "devDependencies": {
@@ -37,6 +37,6 @@
     "grunt-contrib-jshint": "^0.11.3",
     "mkdirp": "^0.5.1",
     "mocha": "*",
-    "rimraf": "^2.4.3"
+    "rimraf": "^2.4.4"
   }
 }

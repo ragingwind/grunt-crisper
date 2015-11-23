@@ -18,7 +18,9 @@ $ npm install --save-dev grunt-crisper
 crisper: {
   dist: {
     options: {
-      cleanup: false
+      cleanup: false,
+      scriptInHead: false, // true is default
+      onlySplit: false
     },
     src: 'app/vulcanized.html',
     dest: 'dist/vulcanized-csp.html'
