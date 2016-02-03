@@ -36,9 +36,9 @@ crisper: {
 
 ### cleanup
 
-Type: `Boolean` Default: `false`
+Type: `Boolean` Default: `true`
 
-It's set cleanup to `True`, source file(vulcanized.html) will be removed after crisper task is done.
+It's set cleanup to `true`, source file(vulcanized.html) will be removed after crisper task is done.
 
 ## License
 

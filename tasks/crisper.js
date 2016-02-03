@@ -40,7 +40,9 @@ module.exports = function (grunt) {
 
         if (options.cleanup) {
           grunt.log.warn('Source file "' + file + '" will be removed');
-          grunt.file.delete(file);
+          grunt.file.delete(file, {
+            force: true
+          });
         }
 
         return content;
