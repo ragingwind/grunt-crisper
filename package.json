@@ -1,6 +1,6 @@
 {
   "name": "grunt-crisper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Grunt plugin for crisper that split inline scripts from an HTML file for CSP compliance",
   "license": "MIT",
   "author": {
