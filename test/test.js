@@ -67,7 +67,7 @@ describe('Crisper grunt task', function () {
     assert(html);
     assert(js);
     assert(rex.html.test(html));
-    // assert(rex.js.test(js));
+    assert(rex.js.test(js));
   });
 
   it('options test: scriptInHead', function () {
