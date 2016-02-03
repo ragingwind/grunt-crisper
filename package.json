@@ -34,9 +34,9 @@
   },
   "devDependencies": {
     "grunt": "~0.4.5",
-    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-jshint": "^0.12.0",
     "mkdirp": "^0.5.1",
     "mocha": "*",
-    "rimraf": "^2.4.4"
+    "rimraf": "^2.5.1"
   }
 }
